@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
- 
+
 class Style {
- Style._();
+  Style._();
   Color darkColor = Color(0xff006f69);
   Color prinaryColor = Color(0xff3c9e97);
   Color lightColor = Color(0xff71cfc8);
   Color white = Color(0xffffffff);
   Color gray = Color(0xffe0e0e0);
   Color pink = Color(0xEB466E);
-  
+  Color bg = Color(0xFFFDFCFF);
+
   Widget showLogo() => Image.asset('assets/images/login.png');
   Widget showTu() => Image.asset('assets/images/tu.png');
 

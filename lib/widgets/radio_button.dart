@@ -8,7 +8,6 @@ class RadioButtonGroupWidget extends StatefulWidget {
 class _RadioButtonGroupWidgetState extends State<RadioButtonGroupWidget> {
   static const values = <String>['ชาย', 'หญิง'];
   String selectedValue = values.first;
-  
   final selectedColor = Color(0xff006f69);
   final unselectedColor = Colors.black;
 

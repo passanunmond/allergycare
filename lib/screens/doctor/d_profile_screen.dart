@@ -1,165 +1,109 @@
+import 'dart:io';
+import 'dart:async';
 import 'package:flutter/material.dart';
+//import 'package:image_picker/image_picker.dart';
+import 'package:tuallergycare/screens/doctor/d_editprofilescreen.dart';
 import 'package:tuallergycare/utility/style.dart';
 
+const _nameDoctor = "สมชาย ดีใจ";
+const _genderDoctor = "ผู้ชาย";
+const _emailDoctor = "doctor_som@gmail.com";
+const _phoneNumberdoc = "0989982348";
+const _licenseNumber = "4444444444444";
+const _specialty = "กุมารแพทย์เชี่ยวชาญโรคภูมิแพ้";
+
 class DoctorProfileScreen extends StatefulWidget {
-  static const routeName = '/doctorProfilecreen';
+  static const routeName = '/doctorProfilescreen';
   @override
-  State<StatefulWidget> createState() {
-    return DoctorProfileScreenState();
-  }
+  DoctorProfileScreenState createState() => DoctorProfileScreenState();
 }
 
+enum Profile { doctor }
+
 class DoctorProfileScreenState extends State<DoctorProfileScreen> {
-  String _name;
-  String _email;
-  String _password;
-  String _url;
-  String _phoneNumber;
-  String _sex;
-  String _chosenValue;
+  //final currentPatient = FirebaseAuth.instance.currentUser;
+  // File _patientImage;
+  // final _picker = ImagePicker();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  Widget _buildName() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: 'ชื่อ-นามสกุล',
-      ),
-      //maxLength: 50,
-
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'กรุณากรอกชื่อ-นามสกุล';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _name = value;
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
   }
 
-  Widget _buildEmail() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'อีเมล'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'กรุณากรอกอีเมล';
-        }
-        if (!RegExp(
-                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-            .hasMatch(value)) {
-          return 'Please enter a valid email Address';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _email = value;
-      },
-    );
-  }
+//  Future<void> setImage() async {
+    // final ref = FirebaseStorage.instance
+    //     .ref()
+    //     .child('user_image')
+    //     .child(currentPatient.uid + '.jpg');
 
-  Widget _buildPassword() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'รหัสผ่าน'),
-      keyboardType: TextInputType.visiblePassword,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'กรุณากรอกรหัสผ่าน';
-        }
+    // // await ref.putFile(patientImage);
 
-        return null;
-      },
-      onSaved: (String value) {
-        _password = value;
-      },
-    );
-  }
+    // final url = await ref.getDownloadURL();
 
-  Widget _buildLicensenumber() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'เลขที่ใบอนุญาต'),
-      //maxLength: 10,
-      keyboardType: TextInputType.number,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'กรุณากรอกเลขที่ใบอนุญาต';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _url = value;
-      },
-    );
-  }
+  //   try {
+  //     final patientImage = await _picker.getImage(
+  //       source: ImageSource.camera,
+  //       imageQuality: 50,
+  //       maxWidth: 150,
+  //     );
+  //     setState(() {
+  //       if (patientImage != null) {
+  //         _patientImage = File(patientImage.path);
+  //       }
+  //     });
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
-  Widget _buildLogin() {
+  Widget buildInfoDoctor(String nameTag, infoPatient) {
     return Container(
-      margin: EdgeInsets.only(top: 30),
-      //width: screen * 0.75,
-      child: ElevatedButton(
-        onPressed: () {
-          if (!_formKey.currentState.validate()) {
-            return;
-          }
-          _formKey.currentState.save();
-        },
-        child: Text('ลงทะเบียน'),
-        style: ElevatedButton.styleFrom(
-          primary: Style().darkColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+      alignment: Alignment.centerLeft,
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Container(
+              child: Text(
+                nameTag,
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 18,
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildsex() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(top: 16),
-      child: Text(
-        'เพศ',
-        textAlign: TextAlign.left,
-        style: TextStyle(
-          color: Style().darkColor,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildspecialty() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(top: 16),
-      child: DropdownButton<String>(
-        value: _chosenValue,
-        elevation: 3,
-        style: TextStyle(color: Style().darkColor),
-        items: <String>[
-          'กุมารแพทย์',
-          'กุมารแพทย์เชี่ยวชาญโรคปอด',
-          'กุมารแพทย์เชี่ยวชาญโรคภูมิแพ้',
-          'แพทย์ทั่วไป',
-          'แพทย์หูคอจมูก',
-        ].map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-            
-          );
-        }).toList(),
-        hint: Text(
-          "กรุณาเลือกสาขาแพทย์ที่เชี่ยวชาญ",
-          style: TextStyle(
-              color: Colors.black54, fontSize: 16),
-        ),
-        onChanged: (String value) {
-          setState(() {
-            _chosenValue = value;
-          });
-        },
+          Expanded(
+            flex: 7,
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: infoPatient != null
+                    ? Text(
+                        infoPatient,
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 18,
+                        ),
+                      )
+                    : Text(
+                        'กดปุ่ม\'แก้ไข\'เพื่อเพิ่มข้อมูล',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                        ),
+                      ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -167,26 +111,138 @@ class DoctorProfileScreenState extends State<DoctorProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("ลงทะเบียน")),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.all(16),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildName(),
-                _buildEmail(),
-                _buildLicensenumber(),
-                _buildspecialty(),
-                _buildPassword(),
-                _buildLogin(),
-              ],
-            ),
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: const Text("โปรไฟล์"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.pushNamed(context, DoctorEditProfileScreen.routeName);
+              // arguments: ArgumentsDoctorEditProfileScreen(
+              //   _nameDoctor,
+              //   _genderDoctor,
+              //   _phoneNumberdoc,
+              //   _emailDoctor,
+              //   _licenseNumber,
+              //   _specialty)
+              //  );
+            },
+          ),
+        ],
+      ),
+      body: Container(
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CustomPaint(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                ),
+                painter: HeaderContainer(),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.fromLTRB(0, 2, 0, 10),
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: MediaQuery.of(context).size.width / 2,
+                  //   decoration: _patientImage != null
+                  //       ? BoxDecoration(
+                  //           border: Border.all(color: Colors.white, width: 5),
+                  //           shape: BoxShape.circle,
+                  //           image: DecorationImage(
+                  //             fit: BoxFit.cover,
+                  //             image: FileImage(_patientImage),
+                  //           ),
+                  //         )
+                  //       : BoxDecoration(
+                  //           border: Border.all(color: Colors.white, width: 5),
+                  //           shape: BoxShape.circle,
+                  //           image: DecorationImage(
+                  //             fit: BoxFit.cover,
+                  //             image: _genderDoctor == 'ชาย'
+                  //                 ? AssetImage('assets/images/avamys.png')
+                  //                 : AssetImage('assets/images/sad.png'),
+                  //           ),
+                  //         ),
+                  // ),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 5),
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/patient.png'),
+                    ),
+                  ),
+                   ),
+                  TextButton.icon(
+                    onPressed: () {},
+                    //   setImage,
+                    icon: Icon(
+                      Icons.image,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    label: Text(
+                      'Add Image',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      _nameDoctor,
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            buildInfoDoctor('เพศ', _genderDoctor),
+                            buildInfoDoctor('อีเมล', _emailDoctor),
+                            buildInfoDoctor('โทรศัพท์', _phoneNumberdoc),
+                            buildInfoDoctor('เลขที่ใบอนุญาต', _licenseNumber),
+                            buildInfoDoctor('ความเชี่ยวชาญ', _specialty),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),
     );
   }
+}
+
+class HeaderContainer extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = Color.fromRGBO(59, 155, 149, 1);
+    Path path = Path()
+      ..relativeLineTo(0, 100)
+      ..quadraticBezierTo(size.width / 2, 180, size.width, 100)
+      ..relativeLineTo(0, -100)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

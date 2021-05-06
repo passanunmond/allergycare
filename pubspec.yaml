@@ -29,10 +29,20 @@ dependencies:
   http: ^0.12.0+2
   expandable: ^5.0.1
   qr_code_scanner: ^0.4.0
+  simple_animations: ^1.3.4
+  table_calendar: ^2.2.3
+  grouped_list: ^4.0.0 
+  badges: ^1.2.0
+  flutter_barcode_scanner: ^1.0.1
+  
+  
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  
+  
 
 dev_dependencies:
   flutter_test:
@@ -55,12 +65,36 @@ flutter:
     - assets/images/sad.png
     - assets/images/scary.png
     - assets/images/smile.png
-    - assets/images/Avamys.png
+    - assets/images/avamys.png
     - assets/images/tu.png
     - assets/images/login.png
     - assets/images/assessment.png
     - assets/images/patient.png
     - assets/images/drugtoday.png
+    - assets/images/qrcode.png
+    - assets/images/medicinebox.png
+    - assets/images/dymista.jpeg
+    - assets/images/nasonex.jpeg
+    - assets/images/allernix.png
+    - assets/images/telfast.png
+    - assets/images/aerius.png
+    - assets/images/bilaxten.jpeg
+    - assets/images/zyrtec.png
+    - assets/images/xyzal.png
+    - assets/images/head.png
+    - assets/images/pone.png
+    - assets/images/ptwo.png
+    - assets/images/ptree.png
+    - assets/images/pfour.png
+    - assets/images/pfive.png
+    - assets/images/status_green.png
+    - assets/images/status_red.png
+    - assets/images/status_yellow.png
+    - assets/images/status_orange.png
+
+
+    
+
     
     # - assets/images/assessment.png
   #   - images/a_dot_ham.jpeg

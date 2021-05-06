@@ -10,12 +10,12 @@ class DoctorFormScreen extends StatefulWidget {
 }
 
 class DoctorFormScreenState extends State<DoctorFormScreen> {
-  String _namedoc;
-  String _emaildoc;
-  String _passworddoc;
+  String _nameDoctor;
+  String _emailDoctor;
+  String _passwordDoctor;
   String _phoneNumberdoc;
-  String _urldoc;
-  String _chosenValue;
+  String _licenseNumber;
+  String _specialty;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -33,7 +33,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
         return null;
       },
       onSaved: (String value) {
-        _namedoc = value;
+        _nameDoctor = value;
       },
     );
   }
@@ -53,7 +53,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
         return null;
       },
       onSaved: (String value) {
-        _emaildoc = value;
+        _emailDoctor = value;
       },
     );
   }
@@ -70,7 +70,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
         return null;
       },
       onSaved: (String value) {
-        _passworddoc = value;
+        _passwordDoctor = value;
       },
     );
   }
@@ -87,7 +87,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
         return null;
       },
       onSaved: (String value) {
-        _urldoc = value;
+        _licenseNumber = value;
       },
     );
   }
@@ -133,7 +133,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.only(top: 16),
       child: DropdownButton<String>(
-        value: _chosenValue,
+        value: _specialty,
         elevation: 3,
         style: TextStyle(color: Style().darkColor),
         items: <String>[
@@ -154,7 +154,7 @@ class DoctorFormScreenState extends State<DoctorFormScreen> {
         ),
         onChanged: (String value) {
           setState(() {
-            _chosenValue = value;
+            _specialty = value;
           });
         },
       ),

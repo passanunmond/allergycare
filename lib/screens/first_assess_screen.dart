@@ -42,7 +42,6 @@ class _FirstAssessScreenState extends State<FirstAssessScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Image.asset('assets/images/assessment.png'),
                 Image.asset('assets/images/assessment.png'),
                 Style().titleH1('แบบประเมิน',
                 ),
