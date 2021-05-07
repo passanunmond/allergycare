@@ -125,7 +125,7 @@ class _DiagnoseState extends State<Diagnose> {
                       style: TextStyle(color: Colors.white),
                     ),
                     color: Style().prinaryColor,
-                    onPressed: () {},
+                    onPressed: () =>  Navigator.of(context).pop(),
                   ),
                 ),
               ],

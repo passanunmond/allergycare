@@ -5,9 +5,9 @@ import 'package:tuallergycare/screens/doctor/d_diagnose.dart';
 import 'package:tuallergycare/screens/doctor/d_skintest.dart';
 import 'package:tuallergycare/utility/style.dart';
 
-const _namePatient = "สมชาย ดีใจ";
+const _namePatient = "สมจิต สมใจ";
 const _birthdayPatient = "27 เมษายน 2540";
-const _genderPatient = "ผู้ชาย";
+const _genderPatient = "ผู้หญิง";
 const _phoneNumberPatient = "0989982348";
 const _height = "160 เซนติเมตร";
 const _weight = "45 กิโลกรัม";
@@ -156,7 +156,7 @@ class _PatientInfoState extends State<PatientInfo> {
                     child: Row(
                       children: [
                         Text(
-                          "ชื่อยา",
+                          "Allernix\nAerius",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontSize: 18,
@@ -256,7 +256,7 @@ class _PatientInfoState extends State<PatientInfo> {
             flex: 3,
             child: Container(
               child: Text(
-                "ใบนัด",
+                "นัดหมายผู้ป่วย",
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 18,
@@ -283,7 +283,7 @@ class _PatientInfoState extends State<PatientInfo> {
                     child: Row(
                       children: [
                         Text(
-                          "11 มิถุนายน 2564\nเวลา09.00-10.00น",
+                          "11 มิถุนายน 2564\nเวลา09.00-10.00น\nคลินิกโรคภูมิแพ้\nตึกA ชั้น2",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontSize: 18,
@@ -391,7 +391,7 @@ class _PatientInfoState extends State<PatientInfo> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('assets/images/patient.png'),
+                        image: AssetImage('assets/images/pone.png'),
                       ),
                     ),
                   ),

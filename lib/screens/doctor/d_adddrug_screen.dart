@@ -23,15 +23,6 @@ List _dataDrug = [
     "detailDrug": "ใช้สำหรับพ่นจมูก2ข้าง",
     "detailUse": "จำนวน 1 กดต่อข้างเย็น"
   },
-  {
-    "albumId": 1,
-    "id": 3,
-    "type": "ยากิน",
-    "nameDrug": "Allernix",
-    "imagesDrug": "assets/images/allernix.png",
-    "detailDrug": "ใช้สำหรับรับประทาน",
-    "detailUse": "จำนวน 1 เม็ด ตอนเย็น"
-  },
 ];
 
 class AddDrugScreen extends StatefulWidget {

@@ -1,14 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:tuallergycare/screens/doctor/d_patientprofile_screen.dart';
 import 'package:tuallergycare/utility/style.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+//import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
   static const routeName = '/doctorhomescreen';
@@ -19,7 +17,7 @@ class DoctorHomeScreen extends StatefulWidget {
 }
 
 class DoctorHomeScreenState extends State<DoctorHomeScreen> {
-  String qrCode = 'Unknown';
+ // String qrCode = 'Unknown';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -55,24 +53,24 @@ class DoctorHomeScreenState extends State<DoctorHomeScreen> {
       ),
     ); 
 
-     Future<void> scanQRCode() async {
-    try {
-      final qrCode = await FlutterBarcodeScanner.scanBarcode(
-        '#ff6666',
-        'Cancel',
-        true,
-        ScanMode.QR,
-      );
+  //    Future<void> scanQRCode() async {
+  //   try {
+  //     final qrCode = await FlutterBarcodeScanner.scanBarcode(
+  //       '#ff6666',
+  //       'Cancel',
+  //       true,
+  //       ScanMode.QR,
+  //     );
 
-      if (!mounted) return;
+  //     if (!mounted) return;
 
-      setState(() {
-        this.qrCode = qrCode;
-      });
-    } on PlatformException {
-      qrCode = 'Failed to get platform version.';
-    }
-  } 
+  //     setState(() {
+  //       this.qrCode = qrCode;
+  //     });
+  //   } on PlatformException {
+  //     qrCode = 'Failed to get platform version.';
+  //   }
+  // } 
   }
 }
 
@@ -382,35 +380,49 @@ class _PatientAllState extends State<PatientAll> {
               children: <Widget>[
                 _buildCard(
                     'สมจิต สมใจ',
-                    'เวลา 09.00 น',
+                    '09.00-10.00 น',
                     'assets/images/pone.png',
                     'ปานกลาง',
                     'assets/images/status_yellow.png',
                     context),
                 _buildCard(
                     'สมหมาย ดั่งใจ',
-                    'เวลา 10.00 น',
+                    '10.00-11.00 น',
                     'assets/images/ptwo.png',
                     'น้อย',
                     'assets/images/status_green.png',
                     context),
                 _buildCard(
                     'สมศรี ยิ้มสยาม',
-                    'เวลา 11.00 น',
+                    '11.00-12.00 น',
                     'assets/images/ptree.png',
                     'ค่อนข้างรุนแรง',
                     'assets/images/status_orange.png',
                     context),
                 _buildCard(
                     'สมหญิง ชอบสมชาย',
-                    'เวลา 11.30 น',
+                    '09.00-10.00 น',
                     'assets/images/pfour.png',
                     'รุนแรงที่สุด',
                     'assets/images/status_red.png',
                     context),
                 _buildCard(
                     'สมชาย รักสมฤดี',
-                    'เวลา 12.00 น',
+                    '14.00-15.00 น',
+                    'assets/images/pfive.png',
+                    'น้อย',
+                    'assets/images/status_green.png',
+                    context),
+                    _buildCard(
+                    'สมจิต ใจดี',
+                    '10.00-11.00 น',
+                    'assets/images/pfour.png',
+                    'รุนแรงที่สุด',
+                    'assets/images/status_red.png',
+                    context),
+                _buildCard(
+                    'สายใย กันและกัน',
+                    '11.00-12.00 น',
                     'assets/images/pfive.png',
                     'น้อย',
                     'assets/images/status_green.png',

@@ -42,132 +42,150 @@ class _AppointmentState extends State<Appointment> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          MyHeader(
-            height: 258,
-            imageUrl: 'assets/images/head.png',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 80,
-                ),
-                Text(
-                  'รายละเอียด',
-                  style: TextStyle(
-                    color: Style().darkColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'ชื่อคนไข้',
-                  style: TextStyle(fontSize: 12),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Column(
-                    children: [
-                      TableCalendar(
-                        calendarController: _calendarController,
-                        initialCalendarFormat: CalendarFormat.week,
-                        startingDayOfWeek: StartingDayOfWeek.monday,
-                        formatAnimation: FormatAnimation.slide,
-                        headerStyle: HeaderStyle(
-                          centerHeaderTitle: true,
-                          formatButtonVisible: false,
-                          titleTextStyle:
-                              TextStyle(color: Colors.black, fontSize: 16),
-                          leftChevronIcon: Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
-                            size: 15,
-                          ),
-                          rightChevronIcon: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.black,
-                            size: 15,
-                          ),
-                          leftChevronMargin: EdgeInsets.only(left: 70),
-                          rightChevronMargin: EdgeInsets.only(right: 70),
-                        ),
-                        calendarStyle: CalendarStyle(
-                            weekendStyle: TextStyle(color: Colors.black),
-                            weekdayStyle: TextStyle(color: Colors.black)),
-                        daysOfWeekStyle: DaysOfWeekStyle(
-                            weekendStyle: TextStyle(color: Colors.black),
-                            weekdayStyle: TextStyle(color: Colors.black)),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'กรุณาเลือกช่วงเวลาที่ว่าง',
+      // appBar: AppBar(
+      //   title: const Text('จองเวลานัดหมาย'),
+      // ),
+      body: Container(
+       
+          child: Column(
+            children: <Widget>[
+              MyHeader(
+                height: 258,
+                imageUrl: 'assets/images/head.png',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Text(
+                      'รายละเอียด',
                       style: TextStyle(
                         color: Style().darkColor,
-                        fontSize: 18,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    child: Wrap(
-                      spacing: 5.0,
-                      runSpacing: 5.0,
-                      children: <Widget>[
-                        choiceChipWidget(chipTime),
-                      ],
+                    Text(
+                      'สมจิต ใจดี',
+                      style: TextStyle(fontSize: 18),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        RaisedButton(
-                          child: Text(
-                            'ยกเลิกการจอง',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: Colors.grey[400],
-                          onPressed: () {},
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        RaisedButton(
-                          child: Text(
-                            'ยืนยันการจอง',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: Style().prinaryColor,
-                          onPressed: () {},
-                        ),
-                      ],
+                    Text(
+                      'คลินิกโรคภูมิแพ้',
+                      style: TextStyle(fontSize: 18),
                     ),
-                  ),
-                ],
+                    Text(
+                      'ตึกA ชั้น2',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ],
+                ),
               ),
-            ),
+              Expanded(
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Column(
+                        children: [
+                          TableCalendar(
+                            calendarController: _calendarController,
+                            initialCalendarFormat: CalendarFormat.week,
+                            startingDayOfWeek: StartingDayOfWeek.monday,
+                            formatAnimation: FormatAnimation.slide,
+                            headerStyle: HeaderStyle(
+                              centerHeaderTitle: true,
+                              formatButtonVisible: false,
+                              titleTextStyle:
+                                  TextStyle(color: Colors.black, fontSize: 16),
+                              leftChevronIcon: Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              rightChevronIcon: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              leftChevronMargin: EdgeInsets.only(left: 70),
+                              rightChevronMargin: EdgeInsets.only(right: 70),
+                            ),
+                            calendarStyle: CalendarStyle(
+                                weekendStyle: TextStyle(color: Colors.black),
+                                weekdayStyle: TextStyle(color: Colors.black)),
+                            daysOfWeekStyle: DaysOfWeekStyle(
+                                weekendStyle: TextStyle(color: Colors.black),
+                                weekdayStyle: TextStyle(color: Colors.black)),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'กรุณาเลือกช่วงเวลาที่ว่าง',
+                          style: TextStyle(
+                            color: Style().darkColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: Wrap(
+                          spacing: 5.0,
+                          runSpacing: 5.0,
+                          children: <Widget>[
+                            choiceChipWidget(chipTime),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            RaisedButton(
+                              child: Text(
+                                'ยกเลิกการจอง',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              color: Colors.grey[400],
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            RaisedButton(
+                              child: Text(
+                                'ยืนยันการจอง',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              color: Style().prinaryColor,
+                              onPressed: () =>
+                                Navigator.of(context).pop(),
+                              
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      
     );
   }
 }

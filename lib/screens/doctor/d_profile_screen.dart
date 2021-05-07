@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tuallergycare/screens/doctor/d_editprofilescreen.dart';
 import 'package:tuallergycare/utility/style.dart';
 
-const _nameDoctor = "สมชาย ดีใจ";
+const _nameDoctor = "นพ.ชายชาย ขายของ";
 const _genderDoctor = "ผู้ชาย";
 const _emailDoctor = "doctor_som@gmail.com";
 const _phoneNumberdoc = "0989982348";
@@ -176,7 +176,7 @@ class DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/images/patient.png'),
+                      image: AssetImage('assets/images/doctor.png'),
                     ),
                   ),
                    ),
